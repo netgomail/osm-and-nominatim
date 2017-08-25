@@ -48,3 +48,19 @@ sudo apt install osm2pgsql
 
 osm2pgsql --slim -d gisdb -C 600 --hstore -S openstreetmap-carto-4.1.0/openstreetmap-carto.style RU-YAN.osm.pbf
 ```
+
+## Установка mod_tile
+
+```
+sudo apt install git autoconf libtool libmapnik-dev apache2-dev
+
+git clone https://github.com/openstreetmap/mod_tile.git
+
+cd mod_tile/
+
+./autogen.sh
+./configure
+make
+sudo make install
+sudo make install-mod_tile
+```
