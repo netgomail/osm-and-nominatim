@@ -9,15 +9,17 @@ sudo apt install postgresql postgresql-contrib postgis postgresql-9.6-postgis-2.
 sudo -u postgres -i
 ```
 
-Создаем пользователя PostgreSQL с именем openstreet
+Создаем пользователя PostgreSQL с именем от которого работаете в Убунту
 ```
-createuser openstreet
+createuser USER
 ```
 
 Создаем базу данный gisdb
 
 ```
-createdb -E UTF8 -O openstreet gisdb
+createdb -E UTF8 -O USER gisdb
+
+Удалить базу если нужно dropdb DB
 ```
 
 ```
@@ -39,3 +41,10 @@ tar xvf openstreetmap-carto-4.1.0.tar.gz
 wget -c http://data.gis-lab.info/osm_dump/dump/latest/RU-YAN.osm.pbf
 ```
 
+### Импорт данных 
+
+```
+sudo apt install osm2pgsql
+
+osm2pgsql --slim -d gisdb -C 600 --hstore -S openstreetmap-carto-4.1.0/openstreetmap-carto.style RU-YAN.osm.pbf
+```
