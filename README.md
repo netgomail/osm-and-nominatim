@@ -63,4 +63,13 @@ cd mod_tile/
 make
 sudo make install
 sudo make install-mod_tile
+sudo ldconfig
+```
+
+## Mapnik Stylesheet
+```
+sudo apt install curl unzip gdal-bin mapnik-utils node-carto
+cd openstreetmap-carto-4.1.0
+./get-shapefiles.sh
+carto project.mml > style.xml
 ```
