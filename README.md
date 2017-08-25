@@ -14,3 +14,28 @@ sudo -u postgres -i
 createuser openstreet
 ```
 
+Создаем базу данный gisdb
+
+```
+createdb -E UTF8 -O openstreet gisdb
+```
+
+```
+psql -c "CREATE EXTENSION hstore;" -d gisdb
+
+psql -c "CREATE EXTENSION postgis;" -d gisdb
+
+psql -c "CREATE EXTENSION postgis_topology;" -d gisdb
+
+exit
+```
+## Шаг 2: Установка стилей карты а данных
+
+```
+wget https://github.com/gravitystorm/openstreetmap-carto/archive/v4.1.0.tar.gz
+
+tar xvf openstreetmap-carto-4.1.0.tar.gz
+
+wget -c http://data.gis-lab.info/osm_dump/dump/latest/RU-YAN.osm.pbf
+```
+
