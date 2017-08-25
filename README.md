@@ -4,3 +4,9 @@
 ```
 sudo apt install postgresql postgresql-contrib postgis postgresql-9.6-postgis-2.3
 ```
+```
+sudo -u postgres -i
+```
+```
+createuser openstreet
+```
